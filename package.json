@@ -27,8 +27,9 @@
     "webpack-dev-server": "^3.1.9"
   },
   "scripts": {
-    "dev": "yarn mamp-dev && webpack-dev-server --mode development",
-    "prod": "yarn clean && yarn copydist && webpack --mode production",
+    "dev": "webpack-dev-server --mode development",
+    "prod": "rm -rf public/ && webpack --mode production",
+    "build": "yarn prod",
     "copydist": "rsync -a --exclude=*.css --exclude=*.js ./src/ ./dist",
     "clean": "rm -rf ./dist",
     "mamp-dev": "./node_modules/.bin/mamp switch \"$(pwd)/src\"",
